@@ -23,7 +23,7 @@ var items = document.querySelectorAll("[data-md-color-media]");
 
 for (let index = 0; index < items.length; index++) {
   const element = items[index];
-  element.onchange = verifyDark();
+  element.onchange = verifyDark;
 }
 
 const observer = new PerformanceObserver((list) => {
@@ -46,6 +46,7 @@ observer.observe({
 function fromLightToDark(images) {
   images.forEach((image) => {
     var idx = image.src.lastIndexOf(".");
+    if(image.src.indexOf("_dark") !== -1) return;
     if (idx > -1) {
       var add = "_dark";
       image.src = [image.src.slice(0, idx), add, image.src.slice(idx)].join("");
