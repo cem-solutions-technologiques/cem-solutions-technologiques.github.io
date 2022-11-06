@@ -20,3 +20,16 @@
 .md-typeset ul li {
   margin-bottom: .05em;
 }
+
+hr {
+  background: transparent;
+  border: 0 !important;
+  margin: 0 !important;
+}
+
+hr:after {
+  position: absolute;
+  content: '↲';
+  opacity: 0.5;
+  right: 5px;
+}
