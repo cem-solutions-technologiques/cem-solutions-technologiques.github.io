@@ -1,0 +1,22 @@
+name: ci 
+on:
+  push:
+    branches:
+      - master 
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - run: sudo apt install libpango-1.0-0 libharfbuzz0b libpangoft2-1.0-0 libffi-dev libjpeg-dev libopenjp2-7-dev
+      - run: pip install weasyprint
+      - run: pip install mkdocs-material 
+      - run: pip install mkdocs[i18n]
+      - run: pip install mkdocs-with-pdf
+      - run: pip install mkdocs-build-plantuml-plugin
+      - run: pip install mkdocs-exclude
+      - run: mkdocs gh-deploy --force

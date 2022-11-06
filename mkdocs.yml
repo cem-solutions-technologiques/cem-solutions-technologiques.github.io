@@ -1,0 +1,115 @@
+site_name: 4E4 - Solutions technologiques
+site_author: Thierry Giroux Veilleux
+theme:
+  name: material
+  language: fr
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Mode sombre
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Mode éclairé
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    - toc.follow
+    - header.autohide
+extra_css:
+  - "stylesheets/extra.css"
+  - "stylesheets/theme_dark.css"
+extra_javascript:
+  - "javascript/images_dark.js"
+nav:
+  - Gestion: 
+      - Gestion/index/index.md
+      - Gestion/travaux.md
+  - Planification: 
+      - Planification/index/index.md
+      - Planification/planification-1010.md
+      - Planification/planification-1020.md
+      - Planification/planification-1030.md
+  - Contenu:
+      - Contenu/index/index.md
+      - Contenu/cours-01.md
+      - Contenu/cours-02.md
+      - Contenu/cours-03.md
+      - Contenu/cours-04.md
+      - Contenu/cours-05.md
+      - Contenu/cours-06.md
+      - Contenu/cours-07.md
+      - Contenu/cours-08.md
+      - Contenu/cours-09.md
+      - Contenu/cours-10.md
+      - Contenu/cours-11.md
+      - Contenu/cours-12.md
+      - Contenu/cours-13.md
+      - Contenu/cours-14.md
+      - Contenu/cours-15.md
+     #- Contenu/cours-16.md
+     #- Contenu/cours-17.md
+     #- Contenu/cours-18.md
+     #- Contenu/cours-19.md
+     #- Contenu/cours-20.md
+     #- Contenu/cours-21.md
+     #- Contenu/cours-22.md
+     #- Contenu/cours-23.md
+     #- Contenu/cours-24.md
+     #- Contenu/cours-25.md
+     #- Contenu/cours-26.md
+     #- Contenu/cours-27.md
+     #- Contenu/cours-28.md
+     #- Contenu/cours-29.md
+     #- Contenu/cours-30.md
+  - Exemple:
+      - Exemple/index/index.md
+      - Exemple/exemple.md
+plugins:
+  - search
+  - build_plantuml:
+      render: 'server' # or "local" for local rendering
+      server: 'http://www.plantuml.com/plantuml' # offical plantuml server
+      disable_ssl_certificate_validation: true # for self-signed and invalid certs
+      output_format: 'svg' # or "png"
+      diagram_root: 'docs/Diagrammes' # should reside under docs_dir
+      output_folder: 'svg'
+      input_folder: 'puml'
+      theme_enabled: true
+      theme_folder: "include/themes"
+      theme_light: "light.puml"
+      theme_dark: "dark.puml"
+  - exclude:
+      glob:
+        - diagrams/include/C4/*
+  - with-pdf:
+      toc_title: Table des matières
+      copyright: Tous droits réservés
+      cover_subtitle: 420-4E4-EM
+      output_path: pdf/420-4E4-EM.pdf
+      exclude_pages:
+        - 'Planification/index/'
+        - 'Contenu/index/'
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - footnotes
+  - toc:
+      permalink: '#'
